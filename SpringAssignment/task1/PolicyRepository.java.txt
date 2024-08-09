@@ -1,6 +1,0 @@
-public interface PolicyRepository {
-    List<Policy> findAll();
-    Policy findById(int id);
-    void save(Policy policy);
-    void deleteById(int id);
-}

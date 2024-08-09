@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Policy Admin</title>
+</head>
+<body>
+<h1>Policy Admin</h1>
+<ul th:each="policy : ${policies}">
+    <li th:text="${policy.name}">Policy Name</li>
+    <li th:text="${policy.description}">Policy Description</li>
+</ul>
+<a href="/create">Create Policy</a>
+</body>
+</html>

@@ -1,8 +1,0 @@
-@Controller
-@RequestMapping("/policy")
-public class PolicyController {
-    @Autowired
-    private PolicyService policyService;
-
-    // implement controller logic using the policy service
-}
