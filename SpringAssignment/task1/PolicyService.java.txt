@@ -1,0 +1,7 @@
+public interface PolicyService {
+    List<Policy> getAllPolicies();
+    Policy getPolicyById(int id);
+    void createPolicy(Policy policy);
+    void updatePolicy(Policy policy);
+    void deletePolicy(int id);
+}

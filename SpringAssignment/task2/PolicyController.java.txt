@@ -1,0 +1,47 @@
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/policy")
+public class PolicyController {
+    @Autowired
+    private PolicyService policyService;
+
+    @GetMapping("/create")
+    public String createPolicy(Model model) {
+        Policy policy = new Policy();
+        model.addAttribute("policy", policy);
+        return "policyCreate";
+    }
+
+    @PostMapping("/create")
+    public String createPolicy(@ModelAttribute @Valid Policy policy, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "policyCreate";
+        }
+        policyService.createPolicy(policy);
+        return "redirect:/policy/list";
+    }
+
+    @GetMapping("/update/{id}")
+    public String updatePolicy(@PathVariable int id, Model model) {
+        Policy policy = policyService.getPolicyById(id);
+        model.addAttribute("policy", policy);
+        return "policyUpdate";
+    }
+
+    @PostMapping("/update")
+    public String updatePolicy(@ModelAttribute @Valid Policy policy, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "policyUpdate";
+        }
+        policyService.updatePolicy(policy);
+        return "redirect:/policy/list";
+    }
+}

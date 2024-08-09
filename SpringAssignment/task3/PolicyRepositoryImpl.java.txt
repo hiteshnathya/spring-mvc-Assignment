@@ -1,0 +1,7 @@
+@Repository
+public class PolicyRepositoryImpl implements PolicyRepository {
+    @Autowired
+    private DataSource dataSource;
+
+    // implement database queries using JDBC or ORM
+}

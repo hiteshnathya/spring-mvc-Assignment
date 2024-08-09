@@ -1,0 +1,7 @@
+@Service
+public class PolicyServiceImpl implements PolicyService {
+    @Autowired
+    private PolicyRepository policyRepository;
+
+    // implement business logic using the policy repository
+}

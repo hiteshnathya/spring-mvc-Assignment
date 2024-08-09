@@ -1,0 +1,10 @@
+import org.springframework.validation.annotation.Validated;
+
+@Validated
+public interface PolicyService {
+    List<Policy> getAllPolicies();
+    Policy getPolicyById(int id);
+    void createPolicy(@Valid Policy policy);
+    void updatePolicy(@Valid Policy policy);
+    void deletePolicy(int id);
+}
